@@ -47,11 +47,11 @@
               this.loginForm
             )
               .then(res => {
-                if (res.data === '0000') {
+                if (res.data === 's0000') {
                   this.$message({message: '登陆成功', type: 'success'});
-                } else if (res.data === '1001') {
+                } else if (res.data === 'e1001') {
                   this.$alert('密码错误');
-                } else if (res.data === '1002') {
+                } else if (res.data === 'e1002') {
                   this.$alert('账号不存在');
                 }
               })

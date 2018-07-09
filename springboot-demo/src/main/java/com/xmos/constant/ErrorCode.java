@@ -2,7 +2,7 @@ package com.xmos.constant;
 
 public class ErrorCode {
     /** 密码错误 */
-    public final static String WRONG_PWD = "1001";
+    public final static String WRONG_PWD = "e1001";
     /** 账号有误 */
-    public final static String WRONG_NAME = "1002";
+    public final static String WRONG_NAME = "e1002";
 }
