@@ -47,13 +47,13 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$axios.post(
-              '/xmos/register',
+              '/register',
               this.registerForm
             )
               .then(res => {
-                if (res.data == '0000') {
+                if (res.data === '0000') {
                   this.$alert('注册成功');
-                } else if (res.data == '1002') {
+                } else if (res.data === '1002') {
                   this.$alert('该用户已被注册');
                 }
                 this.$refs['registerForm'].resetFields();
