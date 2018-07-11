@@ -64,7 +64,7 @@
   * 运行步骤
     `java -jar xmos.war`使用内部tomcat运行或者把war包放在外部tomcat的webapps目录下来启动服务
 ### 项目开发需要注意的地方
-* axios跨域
+* axios跨域(开发期间需要,生产上不需要)
   * 修改vue-demo中config/index.js的proxyTable为如下代码
     ```
     proxyTable: {
@@ -74,9 +74,15 @@
       }
     }
     ```
-  * 设置axios的全局baseUrl,在main.js中添加如下代码
+* 设置axios的全局baseUrl(开发期间需注释掉,生产上才启用)
+  * 在main.js中添加如下代码
     ```
     axios.defaults.baseURL = 'http://localhost:8080/xmos'
     ```
     这样的好处是后台项目名变了后前台方便修改,但这里也有一个坑,如果写了localhost那么用ip登陆页面后请求无法发送到后台,解决的办法是修改localhost为后台     服务器的ip,但这样也有一个问题,假如后台服务器的ip变了,难道又修改baseURL然后重新打包一次吗?其实不用这么麻烦,我提供一个简单的方法.找到打包后生成的     dist/static/js目录下的app开头的js文件,搜索文件里面的内容,直接修改ip为新的服务器ip,然后重启后台服务即可
-    
+* 设置生产上的静态资源访问根路径
+  * 修改vue-demo中config/index.js的build为如下代码
+    ```
+    //发布后资源的路径
+    assetsPublicPath: '/xmos'
+    ```
