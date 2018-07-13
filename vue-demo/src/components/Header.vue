@@ -1,6 +1,7 @@
 <template>
-    <div>
-      <p>{{ headerMsg }}</p>
+    <div id="Header">
+      <div><span>用户名:{{ userName }}</span></div>
+      <div><span>部门:{{ dept }}</span></div>
     </div>
 </template>
 
@@ -12,11 +13,14 @@
           }
         },
       props: [
-        'headerMsg'
+        'userName','dept'
       ]
     }
 </script>
 
 <style scoped>
-
+  #Header {
+    background-color: darkblue;
+    color: white;
+  }
 </style>

@@ -7,6 +7,8 @@ import com.xmos.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -40,5 +42,9 @@ public class UserService {
         } else {
             return ErrorCode.WRONG_NAME;
         }
+    }
+
+    public List<User> findUser(User user) {
+        return userRepository.findUser(user);
     }
 }
