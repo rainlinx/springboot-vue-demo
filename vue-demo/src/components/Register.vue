@@ -13,6 +13,9 @@
       <el-form-item prop="dept">
         <el-input v-model="registerForm.dept" placeholder="部门"></el-input>
       </el-form-item>
+      <el-form-item prop="level">
+        <el-input v-model="registerForm.level" placeholder="等级"></el-input>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="register('registerForm')">注册</el-button>
       </el-form-item>
@@ -30,13 +33,14 @@
           password: [{required: true, message: '请输入密码', trigger: 'blur'}],
           age: [{required: true, message: '请输入年龄', trigger: 'blur'}],
           dept: [{required: true, message: '请输入部门', trigger: 'blur'}],
+          level: [{required: true, message: '请输入等级', trigger: 'blur'}],
         },
         registerForm: {
           name: '',
           password: '',
           age: '',
           dept: '',
-          level: '1'
+          level: ''
         }
       }
     },
@@ -45,14 +49,14 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$axios.post(
-              '/register',
+              '/user/register',
               this.registerForm
             )
               .then(res => {
                 if (res.data === 's0000') {
-                  this.$alert('注册成功');
+                  this.$message({message: '注册成功', type: 'success'});
                 } else if (res.data === 'e1002') {
-                  this.$alert('该用户已被注册');
+                  this.$message({message: '该用户已被注册', type: 'warn'});
                 }
                 this.$refs['registerForm'].resetFields();
               })

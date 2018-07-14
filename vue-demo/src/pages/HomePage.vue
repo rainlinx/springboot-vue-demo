@@ -56,7 +56,7 @@
     margin: auto;
     text-align: center;
     width: 300px;
-    height: 350px;
+    height: 400px;
   }
 
   #Login {
@@ -64,6 +64,6 @@
   }
 
   #Register {
-    margin: 0px 30px 30px 30px;
+    margin: 30px 30px 30px 30px;
   }
 </style>

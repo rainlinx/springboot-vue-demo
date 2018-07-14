@@ -47,4 +47,22 @@ public class UserService {
     public List<User> findUser(User user) {
         return userRepository.findUser(user);
     }
+
+    public String updateUser(User user) {
+        int rows = userRepository.updateUser(user);
+        if (rows > 0) {
+            return "更新成功";
+        } else {
+            return "更新失败";
+        }
+    }
+
+    public String deleteUser(User user) {
+        int rows = userRepository.deleteUser(user);
+        if (rows > 0) {
+            return "删除成功";
+        } else {
+            return "删除失败";
+        }
+    }
 }

@@ -1,9 +1,7 @@
 package com.xmos.repository;
 
 import com.xmos.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +28,12 @@ public interface UserRepository {
             "</where>" +
             "</script>")
     List<User> findUser(User user);
+
+    @Update("update user set name=#{name},password=#{password},age=#{age},dept=#{dept},level=#{level} where name=#{name}")
+    int updateUser(User user);
+
+    @Delete("delete from user where name=#{name}")
+    int deleteUser(User user);
+
+
 }
