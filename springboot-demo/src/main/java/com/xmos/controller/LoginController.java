@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public LoginController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/login")
     public String login(@RequestBody User user) {

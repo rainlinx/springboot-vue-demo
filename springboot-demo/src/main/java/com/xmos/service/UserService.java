@@ -11,8 +11,12 @@ import java.util.List;
 
 @Service
 public class UserService {
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public String login(User user) {
         //先查询账号是否存在

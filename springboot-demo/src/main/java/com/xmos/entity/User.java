@@ -7,6 +7,18 @@ public class User {
     private String dept;
     private String level;
 
+    public User(String name, String password, String age, String dept, String level) {
+        this.name = name;
+        this.password = password;
+        this.age = age;
+        this.dept = dept;
+        this.level = level;
+    }
+
+    public User() {
+
+    }
+
     @Override
     public String toString() {
         return "User{" +

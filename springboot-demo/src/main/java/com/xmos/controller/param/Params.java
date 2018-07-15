@@ -3,8 +3,8 @@ package com.xmos.controller.param;
 import com.xmos.entity.User;
 
 public class Params {
-    public User user;
-    public String operations;
+    private User user;
+    private String operations;
 
     public User getUser() {
         return user;
