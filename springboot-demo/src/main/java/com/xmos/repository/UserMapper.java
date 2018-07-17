@@ -1,12 +1,15 @@
 package com.xmos.repository;
 
 import com.xmos.entity.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-@Mapper
-public interface UserRepository {
+public interface UserMapper {
+
     @Select("select * from user where name = #{name} and password = #{password}")
     User findByNameAndPassword(User user);
 
@@ -34,6 +37,4 @@ public interface UserRepository {
 
     @Delete("delete from user where name=#{name}")
     int deleteUser(User user);
-
-
 }
